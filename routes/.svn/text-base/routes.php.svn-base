@@ -1,0 +1,26 @@
+<?php
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
+//header('content-type: application/json; charset=utf-8');
+require_once  $_SERVER['DOCUMENT_ROOT']."/rest/porterias/accionesPorteria/AccionesPorteria.php";
+
+ 
+$route->post('/funcionarios',function(){
+    $accionesPorteria=new AccionesPorteria(); 
+    echo $accionesPorteria->consultaFuncionario();
+
+     
+ });
+
+$route->post('/items',function(){
+  $accionesPorteria=new AccionesPorteria(); 
+  echo $accionesPorteria->ConsultaItem();
+
+});
+
+ $route->post('/saveporteria',function(){
+  $accionesPorteria=new AccionesPorteria(); 
+  echo $accionesPorteria->registrarDatos();
+
+ });
